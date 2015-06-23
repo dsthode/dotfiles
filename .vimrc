@@ -10,6 +10,8 @@ nmap \q :nohlsearch<CR>
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
 nmap ; :CtrlPMixed<CR>
+let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
@@ -24,8 +26,19 @@ set softtabstop=2
 set shiftwidth=2
 set noexpandtab
 set number
+set clipboard=unnamedplus
 
 au BufRead,BufNewFile *.go set filetype=go
 
 filetype plugin on
 filetype plugin indent on
+
+if $COLORTERM == 'gnome-terminal'
+	set t_Co=256
+endif
+
+if has('gui_running')
+	set guifont=Monospace\ 9
+endif
+
+nnoremap <CR> :noh<CR><CR>
