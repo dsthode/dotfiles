@@ -42,3 +42,4 @@ if has('gui_running')
 endif
 
 nnoremap <CR> :noh<CR><CR>
+set cursorline
